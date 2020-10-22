@@ -8,8 +8,7 @@ class MaxNumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the maximum [number] that the value may be.
   MaxNumberValidator({
     @required this.number,
-  })  : assert(number != null),
-        assert(number > 0);
+  }) : assert(number != null);
 
   static const type = 'max_number';
 

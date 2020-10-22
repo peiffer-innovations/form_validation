@@ -8,7 +8,7 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the minimum [number] that the value must be.
   MinNumberValidator({
     @required this.number,
-  }) : assert(number > 0);
+  }) : assert(number != null);
 
   static const type = 'min_number';
 
