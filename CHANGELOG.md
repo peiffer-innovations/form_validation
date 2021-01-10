@@ -1,3 +1,8 @@
+## [1.0.2+1] - January 10th, 2021
+
+* Dependency updates
+
+
 ## [1.0.2] - October 21st, 2020
 
 * Updated `MinNumberValidator` and `MaxNumberValidator` assertions.
