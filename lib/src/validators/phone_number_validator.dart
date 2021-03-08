@@ -22,7 +22,9 @@ class PhoneNumberValidator extends JsonClass implements ValueValidator {
   static PhoneNumberValidator fromDynamic(dynamic map) {
     PhoneNumberValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[PhoneNumberValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = PhoneNumberValidator();
@@ -45,14 +47,12 @@ class PhoneNumberValidator extends JsonClass implements ValueValidator {
   /// See also:
   ///  * [FormValidationTranslations.form_validation_phone_number]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
       // Credit to this SO answer: https://stackoverflow.com/a/16702965
@@ -61,7 +61,7 @@ class PhoneNumberValidator extends JsonClass implements ValueValidator {
 
       var regExp = RegExp(pattern);
 
-      if (!regExp.hasMatch(value)) {
+      if (!regExp.hasMatch(value!)) {
         error = translator.translate(
           FormValidationTranslations.form_validation_phone_number,
           {

@@ -23,7 +23,9 @@ class EmailValidator extends JsonClass implements ValueValidator {
   static EmailValidator fromDynamic(dynamic map) {
     EmailValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[EmailValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = EmailValidator();
@@ -45,14 +47,12 @@ class EmailValidator extends JsonClass implements ValueValidator {
   /// See also:
   ///  * [FormValidationTranslations.form_validation_email]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
       // Credit to this SO answer: https://stackoverflow.com/a/16888554
@@ -61,7 +61,7 @@ class EmailValidator extends JsonClass implements ValueValidator {
 
       var regExp = RegExp(pattern);
 
-      if (!regExp.hasMatch(value)) {
+      if (!regExp.hasMatch(value ?? '')) {
         error = translator.translate(
           FormValidationTranslations.form_validation_email,
           {

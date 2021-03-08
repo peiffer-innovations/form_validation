@@ -20,8 +20,8 @@ import 'package:static_translations/static_translations.dart';
 ///  * [registerCustomValidatorBuilder]
 class Validator extends JsonClass {
   Validator({
-    @required this.validators,
-  }) : assert(validators?.isNotEmpty == true);
+    required this.validators,
+  });
 
   static const _validatorBuilders = <String, JsonClassBuilder<ValueValidator>>{
     CurrencyValidator.type: CurrencyValidator.fromDynamic,
@@ -76,9 +76,11 @@ class Validator extends JsonClass {
   /// Note: All validators except for [RequiredValidator] will pass on an empty
   /// value.
   static Validator fromDynamic(dynamic map) {
-    Validator result;
+    late Validator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[Validator.fromDynamic]: map is null');
+    } else {
       var list = map['validators'];
       var validators = <ValueValidator>[];
       if (list?.isNotEmpty == true) {
@@ -89,14 +91,12 @@ class Validator extends JsonClass {
 
           if (builder != null) {
             var validator = builder(map);
-            if (validator != null) {
-              validators.add(validator);
-            }
+            validators.add(validator);
           } else {
             throw Exception('Unknown validator type: "$type');
           }
         }
-        if (validators?.isNotEmpty == true) {
+        if (validators.isNotEmpty == true) {
           result = Validator(validators: validators);
         }
       }
@@ -110,20 +110,13 @@ class Validator extends JsonClass {
   static void registerCustomValidatorBuilder(
     String type,
     JsonClassBuilder<ValueValidator> builder,
-  ) {
-    assert(builder != null);
-    assert(type != null);
-
-    _customValidatorBuilders[type] = builder;
-  }
+  ) =>
+      _customValidatorBuilders[type] = builder;
 
   /// Unregisters / removes a custom builder from the given [type].  This will
   /// do nothing if the [type] is not already registered.
-  static void unregisterCustomValidatorBuilder(String type) {
-    assert(type != null);
-
-    _customValidatorBuilders.remove(type);
-  }
+  static void unregisterCustomValidatorBuilder(String type) =>
+      _customValidatorBuilders.remove(type);
 
   /// Encodes this class into a JSON-compatible Map.
   @override
@@ -143,18 +136,17 @@ class Validator extends JsonClass {
   ///
   /// See also:
   ///  * https://pub.dev/packages/static_translations
-  String validate({
-    @required BuildContext context,
-    @required String label,
-    @visibleForTesting Translator translator,
-    @required String value,
+  String? validate({
+    required BuildContext? context,
+    required String label,
+    @visibleForTesting Translator? translator,
+    required String? value,
   }) {
     assert(context != null || translator != null);
-    assert(label?.isNotEmpty == true);
 
     var myTranslator = translator ?? Translator.of(context);
 
-    String error;
+    String? error;
     for (var v in validators) {
       error = v.validate(
         label: label,

@@ -7,8 +7,8 @@ import 'package:static_translations/static_translations.dart';
 class MaxNumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the maximum [number] that the value may be.
   MaxNumberValidator({
-    @required this.number,
-  }) : assert(number != null);
+    required this.number,
+  });
 
   static const type = 'max_number';
 
@@ -29,13 +29,16 @@ class MaxNumberValidator extends JsonClass implements ValueValidator {
   static MaxNumberValidator fromDynamic(dynamic map) {
     MaxNumberValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[MaxNumberValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = MaxNumberValidator(
         number: JsonClass.parseDouble(
-          map['number'],
-        ),
+              map['number'],
+            ) ??
+            0,
       );
     }
 
@@ -58,14 +61,12 @@ class MaxNumberValidator extends JsonClass implements ValueValidator {
   ///  * [FormValidationTranslations.form_validation_max_number]
   ///  * [FormValidationTranslations.form_validation_number]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
       var numValue = JsonClass.parseDouble(value);

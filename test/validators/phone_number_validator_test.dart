@@ -7,7 +7,12 @@ const _kType = PhoneNumberValidator.type;
 
 void main() {
   test('json', () {
-    expect(_kBuilder(null), null);
+    try {
+      expect(_kBuilder(null), null);
+      fail('Expected exception');
+    } catch (e) {
+      // pass
+    }
 
     try {
       _kBuilder({});

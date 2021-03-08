@@ -22,7 +22,9 @@ class RequiredValidator extends JsonClass implements ValueValidator {
   static RequiredValidator fromDynamic(dynamic map) {
     RequiredValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[RequiredValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = RequiredValidator();
@@ -43,16 +45,14 @@ class RequiredValidator extends JsonClass implements ValueValidator {
   /// See also:
   ///  * [FormValidationTranslations.form_validation_required]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
+    String? error;
 
-    String error;
-
-    if (value?.trim()?.isNotEmpty != true) {
+    if (value?.trim().isNotEmpty != true) {
       error = translator.translate(
         FormValidationTranslations.form_validation_required,
         {

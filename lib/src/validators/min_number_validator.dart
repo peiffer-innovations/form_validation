@@ -7,8 +7,8 @@ import 'package:static_translations/static_translations.dart';
 class MinNumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the minimum [number] that the value must be.
   MinNumberValidator({
-    @required this.number,
-  }) : assert(number != null);
+    required this.number,
+  });
 
   static const type = 'min_number';
 
@@ -29,13 +29,16 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
   static MinNumberValidator fromDynamic(dynamic map) {
     MinNumberValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[MinNumberValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = MinNumberValidator(
         number: JsonClass.parseDouble(
-          map['number'],
-        ),
+              map['number'],
+            ) ??
+            0,
       );
     }
 
@@ -58,14 +61,12 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
   ///  * [FormValidationTranslations.form_validation_min_number]
   ///  * [FormValidationTranslations.form_validation_number]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
       var numValue = JsonClass.parseDouble(value);

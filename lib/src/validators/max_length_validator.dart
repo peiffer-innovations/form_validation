@@ -7,9 +7,8 @@ import 'package:static_translations/static_translations.dart';
 class MaxLengthValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the maximum [length] that the value must be.
   MaxLengthValidator({
-    @required this.length,
-  })  : assert(length != null),
-        assert(length > 0);
+    required this.length,
+  }) : assert(length > 0);
 
   static const type = 'max_length';
 
@@ -30,13 +29,16 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
   static MaxLengthValidator fromDynamic(dynamic map) {
     MaxLengthValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[MaxLengthValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = MaxLengthValidator(
         length: JsonClass.parseInt(
-          map['length'],
-        ),
+              map['length'],
+            ) ??
+            0,
       );
     }
 
@@ -57,17 +59,15 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
   /// See also:
   ///  * [FormValidationTranslations.form_validation_max_length]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
-      if (value.length > length) {
+      if (value!.length > length) {
         error = translator.translate(
           FormValidationTranslations.form_validation_max_length,
           {

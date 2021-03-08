@@ -9,7 +9,7 @@ class NumberValidator extends JsonClass implements ValueValidator {
   /// restrict to integer only.
   NumberValidator({
     this.allowDecimal = true,
-  }) : assert(allowDecimal != null);
+  });
 
   static const type = 'number';
 
@@ -30,7 +30,9 @@ class NumberValidator extends JsonClass implements ValueValidator {
   static NumberValidator fromDynamic(dynamic map) {
     NumberValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[NumberValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = NumberValidator(
@@ -60,14 +62,12 @@ class NumberValidator extends JsonClass implements ValueValidator {
   ///  * [FormValidationTranslations.form_validation_number]
   ///  * [FormValidationTranslations.form_validation_number_decimal]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
       var numValue = JsonClass.parseDouble(value);

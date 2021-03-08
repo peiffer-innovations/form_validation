@@ -1,14 +1,17 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:meta/meta.dart';
 import 'package:static_translations/static_translations.dart';
 
 void main() {
   test('json', () {
-    expect(Validator.fromDynamic(null), null);
+    try {
+      expect(Validator.fromDynamic(null), null);
+      fail('Exception expected');
+    } catch (e) {
+      // pass
+    }
 
     try {
       Validator.fromDynamic({'validators': []});
@@ -197,7 +200,9 @@ class _MyMockValidator extends ValueValidator {
   static _MyMockValidator fromDynamic(dynamic map) {
     _MyMockValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('map is null');
+    } else {
       assert(map['type'] == type);
 
       result = _MyMockValidator();
@@ -212,10 +217,10 @@ class _MyMockValidator extends ValueValidator {
       };
 
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) =>
       null;
 }
@@ -226,7 +231,9 @@ class _MyNumberValidator extends ValueValidator {
   static _MyNumberValidator fromDynamic(dynamic map) {
     _MyNumberValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('map is null');
+    } else {
       assert(map['type'] == type);
 
       result = _MyNumberValidator();
@@ -241,10 +248,10 @@ class _MyNumberValidator extends ValueValidator {
       };
 
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) =>
       null;
 }

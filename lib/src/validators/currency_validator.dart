@@ -13,7 +13,7 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
   /// error out on negative otherwise.
   CurrencyValidator({
     this.allowNegative = true,
-  }) : assert(allowNegative != null);
+  });
 
   static const type = 'currency';
 
@@ -34,7 +34,9 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
   static CurrencyValidator fromDynamic(dynamic map) {
     CurrencyValidator result;
 
-    if (map != null) {
+    if (map == null) {
+      throw Exception('[CurrencyValidator.fromDynamic]: map is null');
+    } else {
       assert(map['type'] == type);
 
       result = CurrencyValidator(
@@ -64,19 +66,17 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
   ///  * [FormValidationTranslations.form_validation_currency]
   ///  * [FormValidationTranslations.form_validation_currency_positive]
   @override
-  String validate({
-    @required String label,
-    @required Translator translator,
-    @required String value,
+  String? validate({
+    required String label,
+    required Translator translator,
+    required String? value,
   }) {
-    assert(label?.isNotEmpty == true);
-
-    String error;
+    String? error;
 
     if (value?.isNotEmpty == true) {
-      double d;
+      num? d;
       try {
-        d = NumberFormat.currency().parse(value);
+        d = NumberFormat.currency().parse(value ?? '');
       } catch (e) {
         // no-op, it simply failed parsing
       }
