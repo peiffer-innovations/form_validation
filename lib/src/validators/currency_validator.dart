@@ -21,8 +21,8 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
-  /// non-null object that is not Map-like will result in an error.  A [null]
-  /// value will result in a return value of [null].
+  /// non-null object that is not Map-like will result in an error.  A `null`
+  /// value will result in a return value of `null`.
   ///
   /// This expects the JSON format:
   /// ```json
@@ -60,7 +60,7 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
   /// [allowNegative] is [true] then this will pass on negative currency values,
   /// other this will fail on negative currency values.
   ///
-  /// This will pass on empty or [null] values.
+  /// This will pass on empty or `null` values.
   ///
   /// See also:
   ///  * [FormValidationTranslations.form_validation_currency]

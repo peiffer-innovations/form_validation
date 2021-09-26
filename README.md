@@ -2,6 +2,8 @@
 
 Form validators that can be used directly via code or constructed from JSON to provide more dynamic validation.
 
+[Live Web Example](https://peiffer-innovations.github.io/form_validation/web/index.html)
+
 ## Using the library
 
 Add the repo to your Flutter `pubspec.yaml` file.

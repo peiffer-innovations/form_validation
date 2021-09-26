@@ -1,4 +1,10 @@
-## [2.0.0] - March 75h, 2021
+## [2.0.0+1] - September 26th, 2021
+
+* Added live web example
+* Dependency updates
+
+
+## [2.0.0] - March 7th, 2021
 
 * Null Safety
 

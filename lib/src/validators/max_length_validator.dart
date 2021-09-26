@@ -16,8 +16,8 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
-  /// non-null object that is not Map-like will result in an error.  A [null]
-  /// value will result in a return value of [null].
+  /// non-null object that is not Map-like will result in an error.  A `null`
+  /// value will result in a return value of `null`.
   ///
   /// This expects the JSON format:
   /// ```json
@@ -54,7 +54,7 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
 
   /// Ensures the value contains at most [number] characters.
   ///
-  /// This will pass on empty or [null] values.
+  /// This will pass on empty or `null` values.
   ///
   /// See also:
   ///  * [FormValidationTranslations.form_validation_max_length]

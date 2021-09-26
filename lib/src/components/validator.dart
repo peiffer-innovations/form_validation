@@ -127,7 +127,7 @@ class Validator extends JsonClass {
   /// Executes each of the [validators], in order.  This will fail-fast where
   /// it will stop walking the list as soon as any validator returns an error.
   ///
-  /// A return value of [null] means all validators passed.  A non-null response
+  /// A return value of `null` means all validators passed.  A non-null response
   /// is the error message that can be displayed to the user.
   ///
   /// The [context] is used to attempt to find a valid [Translator] on the
@@ -159,7 +159,7 @@ class Validator extends JsonClass {
       }
     }
 
-    // Normalize empty strings to [null] for API consistency.
+    // Normalize empty strings to `null` for API consistency.
     return error?.isEmpty == true ? null : error;
   }
 }

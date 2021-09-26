@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:form_validation/form_validation.dart';
 import 'package:form_floating_action_button/form_floating_action_button.dart';
+import 'package:form_validation/form_validation.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +21,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
   final String title;
 
   @override
@@ -59,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: InputDecoration(
                     labelText: 'Required',
                   ),
-                  validator: (String value) {
+                  validator: (value) {
                     var validator = Validator(
                       validators: [RequiredValidator()],
                     );
@@ -78,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: InputDecoration(
                     labelText: 'Email',
                   ),
-                  validator: (String value) {
+                  validator: (value) {
                     var validator = Validator(
                       validators: [
                         RequiredValidator(),
@@ -100,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: InputDecoration(
                     labelText: 'Min 3 / Max 5 Length',
                   ),
-                  validator: (String value) {
+                  validator: (value) {
                     var validator = Validator(
                       validators: [
                         MaxLengthValidator(length: 5),
@@ -122,8 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
             loading: _loading,
             onSubmit: _onSubmit,
             onValidate: () async {
-              var error = Form.of(context).validate();
-              return error;
+              var error = Form.of(context)?.validate();
+              return error ?? false;
             },
           ),
         ),
