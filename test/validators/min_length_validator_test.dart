@@ -62,14 +62,6 @@ void main() {
       _kBuilder({
         'length': 5,
         'type': _kType,
-      }) is MinLengthValidator,
-      true,
-    );
-
-    expect(
-      _kBuilder({
-        'length': 5,
-        'type': _kType,
       }).length,
       5,
     );

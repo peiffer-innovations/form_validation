@@ -62,14 +62,6 @@ void main() {
       _kBuilder({
         'number': 5,
         'type': _kType,
-      }) is MaxNumberValidator,
-      true,
-    );
-
-    expect(
-      _kBuilder({
-        'number': 5,
-        'type': _kType,
       }).number,
       5,
     );

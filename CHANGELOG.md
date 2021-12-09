@@ -1,3 +1,8 @@
+## [2.1.0] - December 8th, 2021
+
+* Update with Flutter 2.8 analysis
+
+
 ## [2.0.0+2] - November 14th, 2021
 
 * GH Publishing Workflow update

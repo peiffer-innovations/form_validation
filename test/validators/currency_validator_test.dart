@@ -33,13 +33,6 @@ void main() {
     expect(
       _kBuilder({
         'type': _kType,
-      }) is CurrencyValidator,
-      true,
-    );
-
-    expect(
-      _kBuilder({
-        'type': _kType,
       }).allowNegative,
       true,
     );

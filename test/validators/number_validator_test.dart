@@ -33,13 +33,6 @@ void main() {
     expect(
       _kBuilder({
         'type': _kType,
-      }) is NumberValidator,
-      true,
-    );
-
-    expect(
-      _kBuilder({
-        'type': _kType,
       }).toJson(),
       {
         'allowDecimal': true,

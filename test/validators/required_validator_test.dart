@@ -33,13 +33,6 @@ void main() {
     expect(
       _kBuilder({
         'type': _kType,
-      }) is RequiredValidator,
-      true,
-    );
-
-    expect(
-      _kBuilder({
-        'type': _kType,
       }).toJson(),
       {
         'type': _kType,
