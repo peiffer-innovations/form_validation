@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.17.0
-  json_class: ^2.1.0
+  json_class: ^2.1.2+1
   meta: ^1.7.0
   static_translations: ^2.1.0
 
