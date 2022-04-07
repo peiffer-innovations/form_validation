@@ -4,7 +4,7 @@ version: 2.1.0+2
 homepage: https://github.com/peiffer-innovations/form_validation
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.16.0 <3.0.0"
 
 dependencies:
   flutter:
