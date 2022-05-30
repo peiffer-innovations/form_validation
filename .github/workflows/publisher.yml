@@ -4,8 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - .github/workflows/publisher.yaml
-      - lib/**
+      - .github/workflows/publisher.yml
       - pubspec.yaml
 
 jobs:
