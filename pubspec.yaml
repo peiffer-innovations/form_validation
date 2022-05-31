@@ -1,26 +1,25 @@
-name: form_validation
-description: Validators that can be used directly via code or constructed from JSON to provide  dynamic validation.
-version: 2.1.0+2
-homepage: https://github.com/peiffer-innovations/form_validation
+name: 'form_validation'
+description: 'Validators that can be used directly via code or constructed from JSON to provide  dynamic validation.'
+version: '2.1.0+3'
+homepage: 'https://github.com/peiffer-innovations/form_validation'
 
-environment:
+environment: 
   sdk: '>=2.17.0 <3.0.0'
 
-dependencies:
-  flutter:
-    sdk: flutter
-  intl: ^0.17.0
-  json_class: ^2.1.2+4
-  meta: ^1.7.0
-  static_translations: ^2.1.1
+dependencies: 
+  flutter: 
+    sdk: 'flutter'
+  intl: '^0.17.0'
+  json_class: '^2.1.2+5'
+  meta: '^1.7.0'
+  static_translations: '^2.1.1+1'
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
+dev_dependencies: 
+  flutter_test: 
+    sdk: 'flutter'
 
-ignore_updates:
-  # Ignoring everything in flutter_test as those are all point-in-time entries
-  # can't upgrade without upgrading Flutter itself.
+
+ignore_updates: 
   - 'async'
   - 'boolean_selector'
   - 'characters'
@@ -39,5 +38,4 @@ ignore_updates:
   - 'string_scanner'
   - 'term_glyph'
   - 'vector_math'
-
-flutter:
+flutter: null
