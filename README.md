@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [form_validation](#form_validation)
+  - [Using the library](#using-the-library)
+  - [Validators](#validators)
+  - [Validation Messages / Translations](#validation-messages--translations)
+  - [JSON Support](#json-support)
+    - [CurrencyValidator](#currencyvalidator)
+    - [EmailValidator](#emailvalidator)
+    - [MaxLengthValidator](#maxlengthvalidator)
+    - [MaxNumberValidator](#maxnumbervalidator)
+    - [MinLengthValidator](#minlengthvalidator)
+    - [MinNumberValidator](#minnumbervalidator)
+    - [NumberValidator](#numbervalidator)
+    - [PhoneNumberValidator](#phonenumbervalidator)
+    - [RequiredValidator](#requiredvalidator)
+  - [Custom Validators](#custom-validators)
+    - [Example](#example)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # form_validation
 
 Form validators that can be used directly via code or constructed from JSON to provide more dynamic validation.
