@@ -46276,7 +46276,7 @@ this.aM()},
 w_(){var s,r=this,q=r.hR$,p=r.li$
 p=r.hR$=B.d.b9(B.d.jz(p.gm(p),0,1)*255)
 if(q!==p){s=r.xl$
-p=p>0&&p<255
+p=p>0
 r.xl$=p
 if(r.E$!=null&&s!==p)r.nM()
 r.a1s()
