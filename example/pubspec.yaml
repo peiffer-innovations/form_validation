@@ -3,25 +3,24 @@ description: 'Example application for the form_validation library'
 version: '1.0.0+2'
 publish_to: 'none'
 
-environment: 
-  sdk: '>=2.17.0 <3.0.0'
+environment:
+  sdk: '>=2.18.0 <3.0.0'
 
-dependencies: 
-  flutter: 
+dependencies:
+  flutter:
     sdk: 'flutter'
   form_floating_action_button: '^2.0.0+7'
-  form_validation: 
+  form_validation:
     path: '../'
 
-dev_dependencies: 
-  flutter_test: 
+dev_dependencies:
+  flutter_test:
     sdk: 'flutter'
 
-
-flutter: 
+flutter:
   uses-material-design: true
 
-ignore_updates: 
+ignore_updates:
   - 'archive'
   - 'async'
   - 'boolean_selector'
