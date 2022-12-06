@@ -56,10 +56,10 @@ class PhoneNumberValidator extends JsonClass implements ValueValidator {
 
     if (value?.isNotEmpty == true) {
       // Credit to this SO answer: https://stackoverflow.com/a/16702965
-      var pattern =
+      final pattern =
           r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$';
 
-      var regExp = RegExp(pattern);
+      final regExp = RegExp(pattern);
 
       if (!regExp.hasMatch(value!)) {
         error = translator.translate(

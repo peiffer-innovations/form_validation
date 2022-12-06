@@ -77,16 +77,16 @@ class Validator extends JsonClass {
     if (map == null) {
       throw Exception('[Validator.fromDynamic]: map is null');
     } else {
-      var list = map['validators'];
-      var validators = <ValueValidator>[];
+      final list = map['validators'];
+      final validators = <ValueValidator>[];
       if (list?.isNotEmpty == true) {
         for (var map in list) {
-          var type = map['type'];
-          var builder =
+          final type = map['type'];
+          final builder =
               _customValidatorBuilders[type] ?? _validatorBuilders[type];
 
           if (builder != null) {
-            var validator = builder(map);
+            final validator = builder(map);
             validators.add(validator);
           } else {
             throw Exception('Unknown validator type: "$type');
@@ -140,7 +140,7 @@ class Validator extends JsonClass {
   }) {
     assert(context != null || translator != null);
 
-    var myTranslator = translator ?? Translator.of(context);
+    final myTranslator = translator ?? Translator.of(context);
 
     String? error;
     for (var v in validators) {

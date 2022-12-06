@@ -80,7 +80,7 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    var translator = Translator.of(null);
+    final translator = Translator.of(null);
     expect(
       CurrencyValidator().validate(
         label: 'test',

@@ -70,7 +70,7 @@ class NumberValidator extends JsonClass implements ValueValidator {
     String? error;
 
     if (value?.isNotEmpty == true) {
-      var numValue = JsonClass.parseDouble(value);
+      final numValue = JsonClass.parseDouble(value);
 
       if (numValue == null) {
         error = translator.translate(

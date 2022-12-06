@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _onSubmit() async {
     setState(() => _loading = true);
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     _loading = false;
     if (mounted == true) {
       setState(() {});
@@ -52,18 +52,18 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text(widget.title),
           ),
           body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Required',
                   ),
                   validator: (value) {
-                    var validator = Validator(
+                    final validator = Validator(
                       validators: [RequiredValidator()],
                     );
 
@@ -74,15 +74,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16.0,
                 ),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email',
                   ),
                   validator: (value) {
-                    var validator = Validator(
+                    final validator = Validator(
                       validators: [
                         RequiredValidator(),
                         EmailValidator(),
@@ -96,15 +96,15 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16.0,
                 ),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Min 3 / Max 5 Length',
                   ),
                   validator: (value) {
-                    var validator = Validator(
+                    final validator = Validator(
                       validators: [
                         MaxLengthValidator(length: 5),
                         MinLengthValidator(length: 3),
@@ -125,8 +125,14 @@ class _MyHomePageState extends State<MyHomePage> {
             loading: _loading,
             onSubmit: _onSubmit,
             onValidate: () async {
-              var error = Form.of(context)?.validate();
-              return error ?? false;
+              var error = false;
+
+              try {
+                error = Form.of(context).validate();
+              } catch (e) {
+                // no-op
+              }
+              return error;
             },
           ),
         ),

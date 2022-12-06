@@ -33,7 +33,7 @@ void main() {
       // pass
     }
 
-    var jsonStr = '''
+    final jsonStr = '''
 {
   "validators": [{
     "allowNegative": true,
@@ -63,8 +63,8 @@ void main() {
 }
 ''';
 
-    var validator = Validator.fromDynamic(json.decode(jsonStr));
-    var expectedTypes = [
+    final validator = Validator.fromDynamic(json.decode(jsonStr));
+    final expectedTypes = [
       CurrencyValidator,
       EmailValidator,
       MaxLengthValidator,
@@ -101,7 +101,7 @@ void main() {
       Validator.unregisterCustomValidatorBuilder(_MyMockValidator.type);
     });
     test('custom', () {
-      var jsonStr = '''
+      final jsonStr = '''
 {
   "validators": [{
     "type": "required"
@@ -113,8 +113,8 @@ void main() {
 }
 ''';
 
-      var validator = Validator.fromDynamic(json.decode(jsonStr));
-      var expectedTypes = [
+      final validator = Validator.fromDynamic(json.decode(jsonStr));
+      final expectedTypes = [
         RequiredValidator,
         _MyNumberValidator,
         _MyMockValidator,
@@ -128,10 +128,10 @@ void main() {
   });
 
   test('validate', () {
-    var label = 'test';
-    var length = 8;
-    var translator = Translator.of(null);
-    var validator = Validator(validators: [
+    final label = 'test';
+    final length = 8;
+    final translator = Translator.of(null);
+    final validator = Validator(validators: [
       RequiredValidator(),
       MinLengthValidator(length: length),
       EmailValidator(),

@@ -56,10 +56,10 @@ class EmailValidator extends JsonClass implements ValueValidator {
 
     if (value?.isNotEmpty == true) {
       // Credit to this SO answer: https://stackoverflow.com/a/16888554
-      var pattern =
+      final pattern =
           r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
-      var regExp = RegExp(pattern);
+      final regExp = RegExp(pattern);
 
       if (!regExp.hasMatch(value ?? '')) {
         error = translator.translate(
