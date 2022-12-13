@@ -1,3 +1,8 @@
+## [2.2.0+1] - December 13, 2022
+
+* Automated dependency updates
+
+
 ## [2.2.0-prerelease.1] - November 28th, 2022
 
 * Preparing for Flutter 3.6
@@ -167,6 +172,7 @@
 ## [1.0.0] - June 11th, 2020
 
 * Initial release
+
 
 
 
