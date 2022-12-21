@@ -3,24 +3,24 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "version.json": "4aca90c16e552baac0ccb44601ec5866",
+  "main.dart.js": "42710b0f35e3bebe5c90e902d6705f87",
 "canvaskit/canvaskit.wasm": "bf50631470eb967688cca13ee181af62",
-"canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
 "canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
-"index.html": "72f03b27182d288adc731694c4c0e893",
-"/": "72f03b27182d288adc731694c4c0e893",
+"canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
 "manifest.json": "15f73b7e8a8209c2206210b3ac8dea1b",
-"main.dart.js": "4d748f56eaf3c13edc84c37f0ff22586",
-"assets/AssetManifest.json": "99914b932bd37a50b983c5e7c90ae93b",
-"assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
-"assets/NOTICES": "4b6242fb9d3f2cb3693faec83e86f371",
-"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"assets/shaders/ink_sparkle.frag": "59f1e52ba59fd6c96cc822ff3e5a3de9",
+"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1"
+"flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
+"assets/AssetManifest.json": "99914b932bd37a50b983c5e7c90ae93b",
+"assets/shaders/ink_sparkle.frag": "59f1e52ba59fd6c96cc822ff3e5a3de9",
+"assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
+"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
+"assets/NOTICES": "c223a5a11f027a77463d1e14cb7b772d",
+"index.html": "5d9445f24ab5ed305a9ad195976331cb",
+"/": "5d9445f24ab5ed305a9ad195976331cb",
+"favicon.png": "5dcef449791fa27946b3d35ad8803796",
+"version.json": "4aca90c16e552baac0ccb44601ec5866"
 };
 
 // The application shell files that are downloaded before a service worker can
