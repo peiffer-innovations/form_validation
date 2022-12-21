@@ -128,7 +128,11 @@ class _MyHomePageState extends State<MyHomePage> {
               var error = false;
 
               try {
-                error = Form.of(context).validate();
+                final form = Form.of(context);
+
+                if (form != null) {
+                  error = form.validate();
+                }
               } catch (e) {
                 // no-op
               }
