@@ -16,9 +16,9 @@ const RESOURCES = {
 "assets/shaders/ink_sparkle.frag": "59f1e52ba59fd6c96cc822ff3e5a3de9",
 "assets/FontManifest.json": "7b2a36307916a9721811788013e65289",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"assets/NOTICES": "c223a5a11f027a77463d1e14cb7b772d",
-"index.html": "2a81a455f74192693f73963967099a12",
-"/": "2a81a455f74192693f73963967099a12",
+"assets/NOTICES": "263495a79320afa9f64d43b4a00a1f47",
+"index.html": "4c6018c4a1105e8a818f502031bbe991",
+"/": "4c6018c4a1105e8a818f502031bbe991",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "version.json": "4aca90c16e552baac0ccb44601ec5866"
 };
