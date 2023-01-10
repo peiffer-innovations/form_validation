@@ -6899,7 +6899,6 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 --------------------------------------------------------------------------------
 form_floating_action_button
-static_translations
 
 MIT License
 
@@ -6926,6 +6925,7 @@ SOFTWARE.
 form_validation
 json_class
 rest_client
+static_translations
 
 MIT License
 
