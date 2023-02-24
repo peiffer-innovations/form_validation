@@ -11,7 +11,7 @@ dependencies:
     sdk: 'flutter'
   intl: '^0.18.0'
   json_class: '^2.1.4+1'
-  meta: '^1.7.0'
+  meta: '^1.8.0'
   static_translations: '^2.1.1+22'
 
 dev_dependencies:
