@@ -130,9 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
               try {
                 final form = Form.of(context);
 
-                if (form != null) {
-                  error = form.validate();
-                }
+                error = form.validate();
               } catch (e) {
                 // no-op
               }
