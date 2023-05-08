@@ -1,3 +1,8 @@
+## [3.0.0] - May 8th, 2023
+
+* Removed dependency on `static_translations`.
+
+
 ## [2.2.1+6] - May 2, 2023
 
 * Automated dependency updates

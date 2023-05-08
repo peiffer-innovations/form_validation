@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 const _kBuilder = MinNumberValidator.fromDynamic;
 const _kType = MinNumberValidator.type;
@@ -73,13 +72,11 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    final translator = Translator.of(null);
     expect(
       MinNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: null,
       ),
       null,
@@ -90,7 +87,6 @@ void main() {
         number: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '',
       ),
       null,
@@ -100,7 +96,6 @@ void main() {
         number: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '5',
       ),
       null,
@@ -110,7 +105,6 @@ void main() {
         number: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '10',
       ),
       null,
@@ -120,7 +114,6 @@ void main() {
         number: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '5.0',
       ),
       null,
@@ -130,7 +123,6 @@ void main() {
         number: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '6.1',
       ),
       null,
@@ -142,7 +134,6 @@ void main() {
       )
           .validate(
             label: 'test',
-            translator: translator,
             value: '4',
           )
           ?.isNotEmpty,
@@ -154,7 +145,6 @@ void main() {
       )
           .validate(
             label: 'test',
-            translator: translator,
             value: 'a',
           )
           ?.isNotEmpty,

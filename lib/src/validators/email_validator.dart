@@ -1,7 +1,6 @@
 import 'package:form_validation/form_validation.dart';
 import 'package:json_class/json_class.dart';
 import 'package:meta/meta.dart';
-import 'package:static_translations/static_translations.dart';
 
 /// Validator for email addresses.  This cannot ensure the email address itself
 /// is valid, it only ensures it is a validly formatted email address.
@@ -49,7 +48,6 @@ class EmailValidator extends JsonClass implements ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) {
     String? error;
@@ -62,7 +60,7 @@ class EmailValidator extends JsonClass implements ValueValidator {
       final regExp = RegExp(pattern);
 
       if (!regExp.hasMatch(value ?? '')) {
-        error = translator.translate(
+        error = translate(
           FormValidationTranslations.form_validation_email,
           {
             'label': label,

@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:form_validation/form_validation.dart';
 import 'package:json_class/json_class.dart';
-import 'package:static_translations/static_translations.dart';
 
 /// Container class for a series of [ValueValidator] objects.  Each
 /// [ValueValidator] will be evaluated in a short-circuited way such that as
@@ -133,20 +131,13 @@ class Validator extends JsonClass {
   /// See also:
   ///  * https://pub.dev/packages/static_translations
   String? validate({
-    required BuildContext? context,
     required String label,
-    @visibleForTesting Translator? translator,
     required String? value,
   }) {
-    assert(context != null || translator != null);
-
-    final myTranslator = translator ?? Translator.of(context);
-
     String? error;
     for (var v in validators) {
       error = v.validate(
         label: label,
-        translator: myTranslator,
         value: value,
       );
 

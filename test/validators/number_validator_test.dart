@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 const _kBuilder = NumberValidator.fromDynamic;
 const _kType = NumberValidator.type;
@@ -57,11 +56,9 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    final translator = Translator.of(null);
     expect(
       NumberValidator().validate(
         label: 'test',
-        translator: translator,
         value: null,
       ),
       null,
@@ -70,7 +67,6 @@ void main() {
     expect(
       NumberValidator().validate(
         label: 'test',
-        translator: translator,
         value: '',
       ),
       null,
@@ -78,7 +74,6 @@ void main() {
     expect(
       NumberValidator().validate(
         label: 'test',
-        translator: translator,
         value: '1',
       ),
       null,
@@ -86,7 +81,6 @@ void main() {
     expect(
       NumberValidator().validate(
         label: 'test',
-        translator: translator,
         value: '1.0',
       ),
       null,
@@ -94,7 +88,6 @@ void main() {
     expect(
       NumberValidator().validate(
         label: 'test',
-        translator: translator,
         value: '1.01',
       ),
       null,
@@ -102,7 +95,6 @@ void main() {
     expect(
       NumberValidator().validate(
         label: 'test',
-        translator: translator,
         value: '-1.0',
       ),
       null,
@@ -112,7 +104,7 @@ void main() {
         allowDecimal: false,
       ).validate(
         label: 'test',
-        translator: translator,
+
         value: '1.0', // this resolves to an int because the decimal value is 0.
       ),
       null,
@@ -122,7 +114,6 @@ void main() {
       NumberValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: 'foobar',
           )
           ?.isNotEmpty,
@@ -135,7 +126,6 @@ void main() {
       )
           .validate(
             label: 'test',
-            translator: translator,
             value: '1.01',
           )
           ?.isNotEmpty,
@@ -145,7 +135,6 @@ void main() {
       NumberValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: 'foo',
           )
           ?.isNotEmpty,

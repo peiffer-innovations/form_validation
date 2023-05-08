@@ -2,7 +2,6 @@ import 'package:form_validation/form_validation.dart';
 import 'package:intl/intl.dart';
 import 'package:json_class/json_class.dart';
 import 'package:meta/meta.dart';
-import 'package:static_translations/static_translations.dart';
 
 /// Validator that ensures the value is a valid currency for the device's
 /// current locale.
@@ -68,7 +67,6 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) {
     String? error;
@@ -82,14 +80,14 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
       }
 
       if (d == null) {
-        error = translator.translate(
+        error = translate(
           FormValidationTranslations.form_validation_currency,
           {
             'label': label,
           },
         );
       } else if (d < 0 && allowNegative != true) {
-        error = translator.translate(
+        error = translate(
           FormValidationTranslations.form_validation_currency_positive,
           {
             'label': label,

@@ -1,7 +1,6 @@
 import 'package:form_validation/form_validation.dart';
 import 'package:json_class/json_class.dart';
 import 'package:meta/meta.dart';
-import 'package:static_translations/static_translations.dart';
 
 @immutable
 class MaxLengthValidator extends JsonClass implements ValueValidator {
@@ -61,14 +60,13 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) {
     String? error;
 
     if (value?.isNotEmpty == true) {
       if (value!.length > length) {
-        error = translator.translate(
+        error = translate(
           FormValidationTranslations.form_validation_max_length,
           {
             'label': label,

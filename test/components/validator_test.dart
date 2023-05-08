@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 void main() {
   test('json', () {
@@ -130,7 +129,6 @@ void main() {
   test('validate', () {
     final label = 'test';
     final length = 8;
-    final translator = Translator.of(null);
     final validator = Validator(validators: [
       RequiredValidator(),
       MinLengthValidator(length: length),
@@ -139,12 +137,10 @@ void main() {
 
     expect(
       validator.validate(
-        context: null,
         label: 'test',
-        translator: translator,
         value: '',
       ),
-      translator.translate(
+      translate(
         FormValidationTranslations.form_validation_required,
         {
           'label': label,
@@ -153,12 +149,10 @@ void main() {
     );
     expect(
       validator.validate(
-        context: null,
         label: 'test',
-        translator: translator,
         value: 'test',
       ),
-      translator.translate(
+      translate(
         FormValidationTranslations.form_validation_min_length,
         {
           'label': label,
@@ -169,12 +163,10 @@ void main() {
 
     expect(
       validator.validate(
-        context: null,
         label: 'test',
-        translator: translator,
         value: 'testtest',
       ),
-      translator.translate(
+      translate(
         FormValidationTranslations.form_validation_email,
         {
           'label': label,
@@ -184,9 +176,7 @@ void main() {
 
     expect(
       validator.validate(
-        context: null,
         label: 'test',
-        translator: translator,
         value: 'test@test.com',
       ),
       null,
@@ -219,7 +209,6 @@ class _MyMockValidator extends ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) =>
       null;
@@ -250,7 +239,6 @@ class _MyNumberValidator extends ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) =>
       null;

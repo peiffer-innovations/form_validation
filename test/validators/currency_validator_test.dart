@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 const _kBuilder = CurrencyValidator.fromDynamic;
 const _kType = CurrencyValidator.type;
@@ -80,11 +79,9 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    final translator = Translator.of(null);
     expect(
       CurrencyValidator().validate(
         label: 'test',
-        translator: translator,
         value: null,
       ),
       null,
@@ -93,7 +90,6 @@ void main() {
     expect(
       CurrencyValidator().validate(
         label: 'test',
-        translator: translator,
         value: '',
       ),
       null,
@@ -101,7 +97,6 @@ void main() {
     expect(
       CurrencyValidator().validate(
         label: 'test',
-        translator: translator,
         value: '1',
       ),
       null,
@@ -109,7 +104,6 @@ void main() {
     expect(
       CurrencyValidator().validate(
         label: 'test',
-        translator: translator,
         value: '1.0',
       ),
       null,
@@ -117,7 +111,6 @@ void main() {
     expect(
       CurrencyValidator().validate(
         label: 'test',
-        translator: translator,
         value: '1.00',
       ),
       null,
@@ -125,7 +118,6 @@ void main() {
     expect(
       CurrencyValidator().validate(
         label: 'test',
-        translator: translator,
         value: '-1',
       ),
       null,
@@ -137,7 +129,6 @@ void main() {
       )
           .validate(
             label: 'test',
-            translator: translator,
             value: '-1',
           )
           ?.isNotEmpty,
@@ -147,7 +138,6 @@ void main() {
       CurrencyValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: 'foo',
           )
           ?.isNotEmpty,

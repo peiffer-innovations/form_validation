@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 const _kBuilder = MaxLengthValidator.fromDynamic;
 const _kType = MaxLengthValidator.type;
@@ -73,13 +72,11 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    final translator = Translator.of(null);
     expect(
       MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: null,
       ),
       null,
@@ -90,7 +87,6 @@ void main() {
         length: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '',
       ),
       null,
@@ -100,7 +96,6 @@ void main() {
         length: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '1',
       ),
       null,
@@ -110,7 +105,6 @@ void main() {
         length: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: 'a',
       ),
       null,
@@ -120,7 +114,6 @@ void main() {
         length: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '12',
       ),
       null,
@@ -130,7 +123,6 @@ void main() {
         length: 5,
       ).validate(
         label: 'test',
-        translator: translator,
         value: '123ab',
       ),
       null,
@@ -142,7 +134,6 @@ void main() {
       )
           .validate(
             label: 'test',
-            translator: translator,
             value: '123456',
           )
           ?.isNotEmpty,

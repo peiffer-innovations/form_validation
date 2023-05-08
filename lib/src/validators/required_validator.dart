@@ -1,7 +1,6 @@
 import 'package:form_validation/form_validation.dart';
 import 'package:json_class/json_class.dart';
 import 'package:meta/meta.dart';
-import 'package:static_translations/static_translations.dart';
 
 /// A validator that ensures the value is non-`null` and non-empty.
 @immutable
@@ -47,13 +46,12 @@ class RequiredValidator extends JsonClass implements ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) {
     String? error;
 
     if (value?.trim().isNotEmpty != true) {
-      error = translator.translate(
+      error = translate(
         FormValidationTranslations.form_validation_required,
         {
           'label': label,

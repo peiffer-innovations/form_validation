@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 const _kBuilder = RequiredValidator.fromDynamic;
 const _kType = RequiredValidator.type;
@@ -41,12 +40,9 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    final translator = Translator.of(null);
-
     expect(
       RequiredValidator().validate(
         label: 'test',
-        translator: translator,
         value: '8005556666',
       ),
       null,
@@ -54,7 +50,6 @@ void main() {
     expect(
       RequiredValidator().validate(
         label: 'test',
-        translator: translator,
         value: '800-555-6666',
       ),
       null,
@@ -62,7 +57,6 @@ void main() {
     expect(
       RequiredValidator().validate(
         label: 'test',
-        translator: translator,
         value: '(800) 555-6666',
       ),
       null,
@@ -70,7 +64,6 @@ void main() {
     expect(
       RequiredValidator().validate(
         label: 'test',
-        translator: translator,
         value: '555-6666',
       ),
       null,
@@ -78,7 +71,6 @@ void main() {
     expect(
       RequiredValidator().validate(
         label: 'test',
-        translator: translator,
         value: '+1 22 333 555 4444',
       ),
       null,
@@ -88,7 +80,6 @@ void main() {
       RequiredValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: null,
           )
           ?.isNotEmpty,
@@ -99,7 +90,6 @@ void main() {
       RequiredValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: '',
           )
           ?.isNotEmpty,
@@ -110,7 +100,6 @@ void main() {
       RequiredValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: '    ',
           )
           ?.isNotEmpty,

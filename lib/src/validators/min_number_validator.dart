@@ -1,7 +1,6 @@
 import 'package:form_validation/form_validation.dart';
 import 'package:json_class/json_class.dart';
 import 'package:meta/meta.dart';
-import 'package:static_translations/static_translations.dart';
 
 @immutable
 class MinNumberValidator extends JsonClass implements ValueValidator {
@@ -63,7 +62,6 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
   @override
   String? validate({
     required String label,
-    required Translator translator,
     required String? value,
   }) {
     String? error;
@@ -72,14 +70,14 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
       final numValue = JsonClass.parseDouble(value);
 
       if (numValue == null) {
-        error = translator.translate(
+        error = translate(
           FormValidationTranslations.form_validation_number,
           {
             'label': label,
           },
         );
       } else if (numValue < number) {
-        error = translator.translate(
+        error = translate(
           FormValidationTranslations.form_validation_min_number,
           {
             'label': label,

@@ -1,5 +1,17 @@
 import 'package:meta/meta.dart';
-import 'package:static_translations/static_translations.dart';
+
+/// Translates the given entry.  Dynamic args must be surrounded in curley
+/// braces.
+String translate(
+  String translated, [
+  Map<String, dynamic>? args,
+]) {
+  args?.forEach((key, value) {
+    translated = translated.replaceAll('{$key}', '$value');
+  });
+
+  return translated;
+}
 
 /// Provides the default (English) translations used by the library.
 @immutable
@@ -8,58 +20,40 @@ class FormValidationTranslations {
 
   static const _kDefaultInvalidError = '{label} is invalid';
 
-  static const form_validation_currency = TranslationEntry(
-    key: 'form_validation_currency',
-    value: _kDefaultInvalidError,
-  );
+  static final values = {
+    'form_validation_currency': _kDefaultInvalidError,
+    'form_validation_currency_positive': _kDefaultInvalidError,
+    'form_validation_email': _kDefaultInvalidError,
+    'form_validation_max_length':
+        '{label} must contain at most {length} characters',
+    'form_validation_max_number': '{label} must be at most {number}',
+    'form_validation_min_length':
+        '{label} must contain at least {length} characters',
+    'form_validation_min_number': '{label} must be at least {number}',
+    'form_validation_number': _kDefaultInvalidError,
+    'form_validation_number_decimal': _kDefaultInvalidError,
+    'form_validation_phone_number': _kDefaultInvalidError,
+    'form_validation_required': '{label} is required',
+  };
 
-  static const form_validation_currency_positive = TranslationEntry(
-    key: 'form_validation_currency_positive',
-    value: _kDefaultInvalidError,
-  );
-
-  static const form_validation_email = TranslationEntry(
-    key: 'form_validation_email',
-    value: _kDefaultInvalidError,
-  );
-
-  static const form_validation_max_length = TranslationEntry(
-    key: 'form_validation_max_length',
-    value: '{label} must contain at most {length} characters',
-  );
-
-  static const form_validation_max_number = TranslationEntry(
-    key: 'form_validation_max_number',
-    value: '{label} must be at most {number}',
-  );
-
-  static const form_validation_min_length = TranslationEntry(
-    key: 'form_validation_min_length',
-    value: '{label} must contain at least {length} characters',
-  );
-
-  static const form_validation_min_number = TranslationEntry(
-    key: 'form_validation_min_number',
-    value: '{label} must be at least {number}',
-  );
-
-  static const form_validation_number = TranslationEntry(
-    key: 'form_validation_number',
-    value: _kDefaultInvalidError,
-  );
-
-  static const form_validation_number_decimal = TranslationEntry(
-    key: 'form_validation_number_decimal',
-    value: _kDefaultInvalidError,
-  );
-
-  static const form_validation_phone_number = TranslationEntry(
-    key: 'form_validation_phone_number',
-    value: _kDefaultInvalidError,
-  );
-
-  static const form_validation_required = TranslationEntry(
-    key: 'form_validation_required',
-    value: '{label} is required',
-  );
+  static String get form_validation_currency =>
+      values['form_validation_currency']!;
+  static String get form_validation_currency_positive =>
+      values['form_validation_currency_positive']!;
+  static String get form_validation_email => values['form_validation_email']!;
+  static String get form_validation_max_length =>
+      values['form_validation_max_length']!;
+  static String get form_validation_max_number =>
+      values['form_validation_max_number']!;
+  static String get form_validation_min_length =>
+      values['form_validation_min_length']!;
+  static String get form_validation_min_number =>
+      values['form_validation_min_number']!;
+  static String get form_validation_number => values['form_validation_number']!;
+  static String get form_validation_number_decimal =>
+      values['form_validation_number_decimal']!;
+  static String get form_validation_phone_number =>
+      values['form_validation_phone_number']!;
+  static String get form_validation_required =>
+      values['form_validation_required']!;
 }

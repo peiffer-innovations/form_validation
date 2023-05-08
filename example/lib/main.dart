@@ -68,7 +68,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
 
                     return validator.validate(
-                      context: context,
                       label: 'Required',
                       value: value,
                     );
@@ -90,7 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
 
                     return validator.validate(
-                      context: context,
                       label: 'Email',
                       value: value,
                     );
@@ -112,7 +110,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
 
                     return validator.validate(
-                      context: context,
                       label: 'Min 3 / Max 5 Length',
                       value: value,
                     );

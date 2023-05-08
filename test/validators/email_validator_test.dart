@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
-import 'package:static_translations/static_translations.dart';
 
 const _kBuilder = EmailValidator.fromDynamic;
 const _kType = EmailValidator.type;
@@ -41,11 +40,9 @@ void main() {
   });
 
   testWidgets('validate', (tester) async {
-    final translator = Translator.of(null);
     expect(
       EmailValidator().validate(
         label: 'test',
-        translator: translator,
         value: null,
       ),
       null,
@@ -54,7 +51,6 @@ void main() {
     expect(
       EmailValidator().validate(
         label: 'test',
-        translator: translator,
         value: '',
       ),
       null,
@@ -62,7 +58,6 @@ void main() {
     expect(
       EmailValidator().validate(
         label: 'test',
-        translator: translator,
         value: 'peifferinnovations@gmail.com',
       ),
       null,
@@ -70,7 +65,6 @@ void main() {
     expect(
       EmailValidator().validate(
         label: 'test',
-        translator: translator,
         value: 'foo@bar.co',
       ),
       null,
@@ -80,7 +74,6 @@ void main() {
       EmailValidator()
           .validate(
             label: 'test',
-            translator: translator,
             value: 'foobar',
           )
           ?.isNotEmpty,
