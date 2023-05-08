@@ -63,7 +63,7 @@ Class                  | Type           | Description
 
 ## Validation Messages / Translations
 
-The library provides a default set of English error messages for each validator's error message.  This library uses the [static_translations](https://pub.dev/packages/static_translations) library for the string and language management, see it for details on how to override the defaults or provide values for other languages.
+The library provides a default set of English error messages for each validator's error message.  This library provides a class named [FormValidationTranslations] that has a `values` map.  In it is the default strings to use.  Update that map when a different language should be used.  Below are the available keys.
 
 Key                                 | Parameters        | Description
 ------------------------------------|-------------------|------------

@@ -37,23 +37,25 @@ class FormValidationTranslations {
   };
 
   static String get form_validation_currency =>
-      values['form_validation_currency']!;
+      values['form_validation_currency'] ?? _kDefaultInvalidError;
   static String get form_validation_currency_positive =>
-      values['form_validation_currency_positive']!;
-  static String get form_validation_email => values['form_validation_email']!;
+      values['form_validation_currency_positive'] ?? _kDefaultInvalidError;
+  static String get form_validation_email =>
+      values['form_validation_email'] ?? _kDefaultInvalidError;
   static String get form_validation_max_length =>
-      values['form_validation_max_length']!;
+      values['form_validation_max_length'] ?? _kDefaultInvalidError;
   static String get form_validation_max_number =>
-      values['form_validation_max_number']!;
+      values['form_validation_max_number'] ?? _kDefaultInvalidError;
   static String get form_validation_min_length =>
-      values['form_validation_min_length']!;
+      values['form_validation_min_length'] ?? _kDefaultInvalidError;
   static String get form_validation_min_number =>
-      values['form_validation_min_number']!;
-  static String get form_validation_number => values['form_validation_number']!;
+      values['form_validation_min_number'] ?? _kDefaultInvalidError;
+  static String get form_validation_number =>
+      values['form_validation_number'] ?? _kDefaultInvalidError;
   static String get form_validation_number_decimal =>
-      values['form_validation_number_decimal']!;
+      values['form_validation_number_decimal'] ?? _kDefaultInvalidError;
   static String get form_validation_phone_number =>
-      values['form_validation_phone_number']!;
+      values['form_validation_phone_number'] ?? _kDefaultInvalidError;
   static String get form_validation_required =>
-      values['form_validation_required']!;
+      values['form_validation_required'] ?? _kDefaultInvalidError;
 }
