@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = MaxNumberValidator.fromDynamic;
-const _kType = MaxNumberValidator.type;
+const _kType = MaxNumberValidator.kType;
 
 void main() {
   test('json', () {
@@ -65,7 +65,7 @@ void main() {
       5,
     );
 
-    expect(MaxNumberValidator(number: 5).toJson(), {
+    expect(const MaxNumberValidator(number: 5).toJson(), {
       'number': 5,
       'type': _kType,
     });
@@ -73,7 +73,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
@@ -83,7 +83,7 @@ void main() {
     );
 
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
@@ -92,7 +92,7 @@ void main() {
       null,
     );
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
@@ -101,7 +101,7 @@ void main() {
       null,
     );
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
@@ -110,7 +110,7 @@ void main() {
       null,
     );
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
@@ -119,7 +119,7 @@ void main() {
       null,
     );
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       ).validate(
         label: 'test',
@@ -129,7 +129,7 @@ void main() {
     );
 
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       )
           .validate(
@@ -140,7 +140,7 @@ void main() {
       true,
     );
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       )
           .validate(
@@ -151,7 +151,7 @@ void main() {
       true,
     );
     expect(
-      MaxNumberValidator(
+      const MaxNumberValidator(
         number: 5,
       )
           .validate(

@@ -5,7 +5,12 @@ import 'package:meta/meta.dart';
 /// A validator that ensures the value is non-`null` and non-empty.
 @immutable
 class RequiredValidator extends JsonClass implements ValueValidator {
-  static const type = 'required';
+  const RequiredValidator();
+
+  static const kType = 'required';
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -24,9 +29,9 @@ class RequiredValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[RequiredValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
-      result = RequiredValidator();
+      result = const RequiredValidator();
     }
 
     return result;

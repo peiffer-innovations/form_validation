@@ -5,13 +5,16 @@ import 'package:meta/meta.dart';
 @immutable
 class MinNumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the minimum [number] that the value must be.
-  MinNumberValidator({
+  const MinNumberValidator({
     required this.number,
   });
 
-  static const type = 'min_number';
+  static const kType = 'min_number';
 
   final double number;
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -31,7 +34,7 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[MinNumberValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = MinNumberValidator(
         number: JsonClass.parseDouble(

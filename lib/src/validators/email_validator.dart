@@ -6,7 +6,12 @@ import 'package:meta/meta.dart';
 /// is valid, it only ensures it is a validly formatted email address.
 @immutable
 class EmailValidator extends JsonClass implements ValueValidator {
-  static const type = 'email';
+  const EmailValidator();
+
+  static const kType = 'email';
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -25,9 +30,9 @@ class EmailValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[EmailValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
-      result = EmailValidator();
+      result = const EmailValidator();
     }
 
     return result;

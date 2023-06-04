@@ -5,13 +5,16 @@ import 'package:meta/meta.dart';
 @immutable
 class MaxNumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the maximum [number] that the value may be.
-  MaxNumberValidator({
+  const MaxNumberValidator({
     required this.number,
   });
 
-  static const type = 'max_number';
+  static const kType = 'max_number';
 
   final double number;
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -31,7 +34,7 @@ class MaxNumberValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[MaxNumberValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = MaxNumberValidator(
         number: JsonClass.parseDouble(

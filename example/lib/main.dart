@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   validator: (value) {
                     final validator = Validator(
-                      validators: [RequiredValidator()],
+                      validators: [const RequiredValidator()],
                     );
 
                     return validator.validate(
@@ -83,8 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   validator: (value) {
                     final validator = Validator(
                       validators: [
-                        RequiredValidator(),
-                        EmailValidator(),
+                        const RequiredValidator(),
+                        const EmailValidator(),
                       ],
                     );
 
@@ -104,8 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   validator: (value) {
                     final validator = Validator(
                       validators: [
-                        MaxLengthValidator(length: 5),
-                        MinLengthValidator(length: 3),
+                        const MaxLengthValidator(length: 5),
+                        const MinLengthValidator(length: 3),
                       ],
                     );
 

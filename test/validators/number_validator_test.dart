@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = NumberValidator.fromDynamic;
-const _kType = NumberValidator.type;
+const _kType = NumberValidator.kType;
 
 void main() {
   test('json', () {
@@ -39,17 +39,17 @@ void main() {
       },
     );
 
-    expect(NumberValidator().toJson(), {
+    expect(const NumberValidator().toJson(), {
       'allowDecimal': true,
       'type': _kType,
     });
 
-    expect(NumberValidator(allowDecimal: true).toJson(), {
+    expect(const NumberValidator(allowDecimal: true).toJson(), {
       'allowDecimal': true,
       'type': _kType,
     });
 
-    expect(NumberValidator(allowDecimal: false).toJson(), {
+    expect(const NumberValidator(allowDecimal: false).toJson(), {
       'allowDecimal': false,
       'type': _kType,
     });
@@ -57,7 +57,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      NumberValidator().validate(
+      const NumberValidator().validate(
         label: 'test',
         value: null,
       ),
@@ -65,42 +65,42 @@ void main() {
     );
 
     expect(
-      NumberValidator().validate(
+      const NumberValidator().validate(
         label: 'test',
         value: '',
       ),
       null,
     );
     expect(
-      NumberValidator().validate(
+      const NumberValidator().validate(
         label: 'test',
         value: '1',
       ),
       null,
     );
     expect(
-      NumberValidator().validate(
+      const NumberValidator().validate(
         label: 'test',
         value: '1.0',
       ),
       null,
     );
     expect(
-      NumberValidator().validate(
+      const NumberValidator().validate(
         label: 'test',
         value: '1.01',
       ),
       null,
     );
     expect(
-      NumberValidator().validate(
+      const NumberValidator().validate(
         label: 'test',
         value: '-1.0',
       ),
       null,
     );
     expect(
-      NumberValidator(
+      const NumberValidator(
         allowDecimal: false,
       ).validate(
         label: 'test',
@@ -111,7 +111,7 @@ void main() {
     );
 
     expect(
-      NumberValidator()
+      const NumberValidator()
           .validate(
             label: 'test',
             value: 'foobar',
@@ -121,7 +121,7 @@ void main() {
     );
 
     expect(
-      NumberValidator(
+      const NumberValidator(
         allowDecimal: false,
       )
           .validate(
@@ -132,7 +132,7 @@ void main() {
       true,
     );
     expect(
-      NumberValidator()
+      const NumberValidator()
           .validate(
             label: 'test',
             value: 'foo',

@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = RequiredValidator.fromDynamic;
-const _kType = RequiredValidator.type;
+const _kType = RequiredValidator.kType;
 
 void main() {
   test('json', () {
@@ -41,35 +41,35 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      RequiredValidator().validate(
+      const RequiredValidator().validate(
         label: 'test',
         value: '8005556666',
       ),
       null,
     );
     expect(
-      RequiredValidator().validate(
+      const RequiredValidator().validate(
         label: 'test',
         value: '800-555-6666',
       ),
       null,
     );
     expect(
-      RequiredValidator().validate(
+      const RequiredValidator().validate(
         label: 'test',
         value: '(800) 555-6666',
       ),
       null,
     );
     expect(
-      RequiredValidator().validate(
+      const RequiredValidator().validate(
         label: 'test',
         value: '555-6666',
       ),
       null,
     );
     expect(
-      RequiredValidator().validate(
+      const RequiredValidator().validate(
         label: 'test',
         value: '+1 22 333 555 4444',
       ),
@@ -77,7 +77,7 @@ void main() {
     );
 
     expect(
-      RequiredValidator()
+      const RequiredValidator()
           .validate(
             label: 'test',
             value: null,
@@ -87,7 +87,7 @@ void main() {
     );
 
     expect(
-      RequiredValidator()
+      const RequiredValidator()
           .validate(
             label: 'test',
             value: '',
@@ -97,7 +97,7 @@ void main() {
     );
 
     expect(
-      RequiredValidator()
+      const RequiredValidator()
           .validate(
             label: 'test',
             value: '    ',

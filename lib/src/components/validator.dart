@@ -18,15 +18,15 @@ class Validator extends JsonClass {
   });
 
   static const _validatorBuilders = <String, JsonClassBuilder<ValueValidator>>{
-    CurrencyValidator.type: CurrencyValidator.fromDynamic,
-    EmailValidator.type: EmailValidator.fromDynamic,
-    MaxLengthValidator.type: MaxLengthValidator.fromDynamic,
-    MaxNumberValidator.type: MaxNumberValidator.fromDynamic,
-    MinLengthValidator.type: MinLengthValidator.fromDynamic,
-    MinNumberValidator.type: MinNumberValidator.fromDynamic,
-    NumberValidator.type: NumberValidator.fromDynamic,
-    PhoneNumberValidator.type: PhoneNumberValidator.fromDynamic,
-    RequiredValidator.type: RequiredValidator.fromDynamic,
+    CurrencyValidator.kType: CurrencyValidator.fromDynamic,
+    EmailValidator.kType: EmailValidator.fromDynamic,
+    MaxLengthValidator.kType: MaxLengthValidator.fromDynamic,
+    MaxNumberValidator.kType: MaxNumberValidator.fromDynamic,
+    MinLengthValidator.kType: MinLengthValidator.fromDynamic,
+    MinNumberValidator.kType: MinNumberValidator.fromDynamic,
+    NumberValidator.kType: NumberValidator.fromDynamic,
+    PhoneNumberValidator.kType: PhoneNumberValidator.fromDynamic,
+    RequiredValidator.kType: RequiredValidator.fromDynamic,
   };
 
   static final _customValidatorBuilders =

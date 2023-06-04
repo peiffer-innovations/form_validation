@@ -6,13 +6,16 @@ import 'package:meta/meta.dart';
 class NumberValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the option to allow decimal values or
   /// restrict to integer only.
-  NumberValidator({
+  const NumberValidator({
     this.allowDecimal = true,
   });
 
-  static const type = 'number';
+  static const kType = 'number';
 
   final bool allowDecimal;
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -32,7 +35,7 @@ class NumberValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[NumberValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = NumberValidator(
         allowDecimal: map['allowDecimal'] == null

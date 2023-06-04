@@ -5,7 +5,12 @@ import 'package:meta/meta.dart';
 /// Validator for phone numbers.
 @immutable
 class PhoneNumberValidator extends JsonClass implements ValueValidator {
-  static const type = 'phone_number';
+  const PhoneNumberValidator();
+
+  static const kType = 'phone_number';
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -24,9 +29,9 @@ class PhoneNumberValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[PhoneNumberValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
-      result = PhoneNumberValidator();
+      result = const PhoneNumberValidator();
     }
 
     return result;

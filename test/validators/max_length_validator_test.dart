@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = MaxLengthValidator.fromDynamic;
-const _kType = MaxLengthValidator.type;
+const _kType = MaxLengthValidator.kType;
 
 void main() {
   test('json', () {
@@ -65,7 +65,7 @@ void main() {
       5,
     );
 
-    expect(MaxLengthValidator(length: 5).toJson(), {
+    expect(const MaxLengthValidator(length: 5).toJson(), {
       'length': 5,
       'type': _kType,
     });
@@ -73,7 +73,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -83,7 +83,7 @@ void main() {
     );
 
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -92,7 +92,7 @@ void main() {
       null,
     );
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -101,7 +101,7 @@ void main() {
       null,
     );
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -110,7 +110,7 @@ void main() {
       null,
     );
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -119,7 +119,7 @@ void main() {
       null,
     );
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -129,7 +129,7 @@ void main() {
     );
 
     expect(
-      MaxLengthValidator(
+      const MaxLengthValidator(
         length: 5,
       )
           .validate(

@@ -5,13 +5,16 @@ import 'package:meta/meta.dart';
 @immutable
 class MaxLengthValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the maximum [length] that the value must be.
-  MaxLengthValidator({
+  const MaxLengthValidator({
     required this.length,
   }) : assert(length > 0);
 
-  static const type = 'max_length';
+  static const kType = 'max_length';
 
   final int length;
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -31,7 +34,7 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[MaxLengthValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = MaxLengthValidator(
         length: JsonClass.parseInt(

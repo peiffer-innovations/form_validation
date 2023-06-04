@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = MinLengthValidator.fromDynamic;
-const _kType = MinLengthValidator.type;
+const _kType = MinLengthValidator.kType;
 
 void main() {
   test('json', () {
@@ -65,7 +65,7 @@ void main() {
       5,
     );
 
-    expect(MinLengthValidator(length: 5).toJson(), {
+    expect(const MinLengthValidator(length: 5).toJson(), {
       'length': 5,
       'type': _kType,
     });
@@ -73,7 +73,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      MinLengthValidator(
+      const MinLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -83,7 +83,7 @@ void main() {
     );
 
     expect(
-      MinLengthValidator(
+      const MinLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -92,7 +92,7 @@ void main() {
       null,
     );
     expect(
-      MinLengthValidator(
+      const MinLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -101,7 +101,7 @@ void main() {
       null,
     );
     expect(
-      MinLengthValidator(
+      const MinLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -110,7 +110,7 @@ void main() {
       null,
     );
     expect(
-      MinLengthValidator(
+      const MinLengthValidator(
         length: 5,
       ).validate(
         label: 'test',
@@ -120,7 +120,7 @@ void main() {
     );
 
     expect(
-      MinLengthValidator(
+      const MinLengthValidator(
         length: 5,
       )
           .validate(

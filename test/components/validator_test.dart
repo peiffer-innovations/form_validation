@@ -87,17 +87,17 @@ void main() {
   group('custom', () {
     setUp(() {
       Validator.registerCustomValidatorBuilder(
-        _MyNumberValidator.type,
+        _MyNumberValidator.kType,
         _MyNumberValidator.fromDynamic,
       );
       Validator.registerCustomValidatorBuilder(
-        _MyMockValidator.type,
+        _MyMockValidator.kType,
         _MyMockValidator.fromDynamic,
       );
     });
     tearDown(() {
-      Validator.unregisterCustomValidatorBuilder(_MyNumberValidator.type);
-      Validator.unregisterCustomValidatorBuilder(_MyMockValidator.type);
+      Validator.unregisterCustomValidatorBuilder(_MyNumberValidator.kType);
+      Validator.unregisterCustomValidatorBuilder(_MyMockValidator.kType);
     });
     test('custom', () {
       final jsonStr = '''
@@ -130,9 +130,9 @@ void main() {
     final label = 'test';
     final length = 8;
     final validator = Validator(validators: [
-      RequiredValidator(),
+      const RequiredValidator(),
       MinLengthValidator(length: length),
-      EmailValidator(),
+      const EmailValidator(),
     ]);
 
     expect(
@@ -185,7 +185,10 @@ void main() {
 }
 
 class _MyMockValidator extends ValueValidator {
-  static const type = 'mock';
+  static const kType = 'mock';
+
+  @override
+  String get type => kType;
 
   static _MyMockValidator fromDynamic(dynamic map) {
     _MyMockValidator result;
@@ -193,7 +196,7 @@ class _MyMockValidator extends ValueValidator {
     if (map == null) {
       throw Exception('map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = _MyMockValidator();
     }
@@ -215,7 +218,10 @@ class _MyMockValidator extends ValueValidator {
 }
 
 class _MyNumberValidator extends ValueValidator {
-  static const type = 'number';
+  static const kType = 'number';
+
+  @override
+  String get type => kType;
 
   static _MyNumberValidator fromDynamic(dynamic map) {
     _MyNumberValidator result;
@@ -223,7 +229,7 @@ class _MyNumberValidator extends ValueValidator {
     if (map == null) {
       throw Exception('map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = _MyNumberValidator();
     }

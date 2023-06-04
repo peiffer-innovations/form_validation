@@ -10,13 +10,16 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the option to [allowNegative] values or not.
   /// If [allowNegative] is [true] then this will allow negative values and will
   /// error out on negative otherwise.
-  CurrencyValidator({
+  const CurrencyValidator({
     this.allowNegative = true,
   });
 
-  static const type = 'currency';
+  static const kType = 'currency';
 
   final bool allowNegative;
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -36,7 +39,7 @@ class CurrencyValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[CurrencyValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = CurrencyValidator(
         allowNegative: map['allowNegative'] == null

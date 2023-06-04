@@ -5,13 +5,16 @@ import 'package:meta/meta.dart';
 @immutable
 class MinLengthValidator extends JsonClass implements ValueValidator {
   /// Constructs the validator with the minimum [length] that the value must be.
-  MinLengthValidator({
+  const MinLengthValidator({
     required this.length,
   }) : assert(length >= 0);
 
-  static const type = 'min_length';
+  static const kType = 'min_length';
 
   final int length;
+
+  @override
+  String get type => kType;
 
   /// Processes the validator object from the given [map] which must be an
   /// actual Map or a Map-like object that supports the `[]` operator.  Any
@@ -31,7 +34,7 @@ class MinLengthValidator extends JsonClass implements ValueValidator {
     if (map == null) {
       throw Exception('[MinLengthValidator.fromDynamic]: map is null');
     } else {
-      assert(map['type'] == type);
+      assert(map['type'] == kType);
 
       result = MinLengthValidator(
         length: JsonClass.parseInt(

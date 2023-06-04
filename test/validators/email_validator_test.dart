@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = EmailValidator.fromDynamic;
-const _kType = EmailValidator.type;
+const _kType = EmailValidator.kType;
 
 void main() {
   test('json', () {
@@ -41,7 +41,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      EmailValidator().validate(
+      const EmailValidator().validate(
         label: 'test',
         value: null,
       ),
@@ -49,21 +49,21 @@ void main() {
     );
 
     expect(
-      EmailValidator().validate(
+      const EmailValidator().validate(
         label: 'test',
         value: '',
       ),
       null,
     );
     expect(
-      EmailValidator().validate(
+      const EmailValidator().validate(
         label: 'test',
         value: 'peifferinnovations@gmail.com',
       ),
       null,
     );
     expect(
-      EmailValidator().validate(
+      const EmailValidator().validate(
         label: 'test',
         value: 'foo@bar.co',
       ),
@@ -71,7 +71,7 @@ void main() {
     );
 
     expect(
-      EmailValidator()
+      const EmailValidator()
           .validate(
             label: 'test',
             value: 'foobar',

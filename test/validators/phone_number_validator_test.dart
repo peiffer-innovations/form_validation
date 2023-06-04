@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = PhoneNumberValidator.fromDynamic;
-const _kType = PhoneNumberValidator.type;
+const _kType = PhoneNumberValidator.kType;
 
 void main() {
   test('json', () {
@@ -41,7 +41,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      PhoneNumberValidator().validate(
+      const PhoneNumberValidator().validate(
         label: 'test',
         value: null,
       ),
@@ -49,35 +49,35 @@ void main() {
     );
 
     expect(
-      PhoneNumberValidator().validate(
+      const PhoneNumberValidator().validate(
         label: 'test',
         value: '',
       ),
       null,
     );
     expect(
-      PhoneNumberValidator().validate(
+      const PhoneNumberValidator().validate(
         label: 'test',
         value: '8005556666',
       ),
       null,
     );
     expect(
-      PhoneNumberValidator().validate(
+      const PhoneNumberValidator().validate(
         label: 'test',
         value: '800-555-6666',
       ),
       null,
     );
     expect(
-      PhoneNumberValidator().validate(
+      const PhoneNumberValidator().validate(
         label: 'test',
         value: '(800) 555-6666',
       ),
       null,
     );
     expect(
-      PhoneNumberValidator().validate(
+      const PhoneNumberValidator().validate(
         label: 'test',
         value: '+12 333 555 4444',
       ),
@@ -85,7 +85,7 @@ void main() {
     );
 
     expect(
-      PhoneNumberValidator()
+      const PhoneNumberValidator()
           .validate(
             label: 'test',
             value: '555-6666',
@@ -95,7 +95,7 @@ void main() {
     );
 
     expect(
-      PhoneNumberValidator()
+      const PhoneNumberValidator()
           .validate(
             label: 'test',
             value: 'foobar',

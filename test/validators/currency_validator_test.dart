@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:form_validation/form_validation.dart';
 
 const _kBuilder = CurrencyValidator.fromDynamic;
-const _kType = CurrencyValidator.type;
+const _kType = CurrencyValidator.kType;
 
 void main() {
   test('json', () {
@@ -62,17 +62,17 @@ void main() {
       },
     );
 
-    expect(CurrencyValidator().toJson(), {
+    expect(const CurrencyValidator().toJson(), {
       'allowNegative': true,
       'type': _kType,
     });
 
-    expect(CurrencyValidator(allowNegative: true).toJson(), {
+    expect(const CurrencyValidator(allowNegative: true).toJson(), {
       'allowNegative': true,
       'type': _kType,
     });
 
-    expect(CurrencyValidator(allowNegative: false).toJson(), {
+    expect(const CurrencyValidator(allowNegative: false).toJson(), {
       'allowNegative': false,
       'type': _kType,
     });
@@ -80,7 +80,7 @@ void main() {
 
   testWidgets('validate', (tester) async {
     expect(
-      CurrencyValidator().validate(
+      const CurrencyValidator().validate(
         label: 'test',
         value: null,
       ),
@@ -88,35 +88,35 @@ void main() {
     );
 
     expect(
-      CurrencyValidator().validate(
+      const CurrencyValidator().validate(
         label: 'test',
         value: '',
       ),
       null,
     );
     expect(
-      CurrencyValidator().validate(
+      const CurrencyValidator().validate(
         label: 'test',
         value: '1',
       ),
       null,
     );
     expect(
-      CurrencyValidator().validate(
+      const CurrencyValidator().validate(
         label: 'test',
         value: '1.0',
       ),
       null,
     );
     expect(
-      CurrencyValidator().validate(
+      const CurrencyValidator().validate(
         label: 'test',
         value: '1.00',
       ),
       null,
     );
     expect(
-      CurrencyValidator().validate(
+      const CurrencyValidator().validate(
         label: 'test',
         value: '-1',
       ),
@@ -124,7 +124,7 @@ void main() {
     );
 
     expect(
-      CurrencyValidator(
+      const CurrencyValidator(
         allowNegative: false,
       )
           .validate(
@@ -135,7 +135,7 @@ void main() {
       true,
     );
     expect(
-      CurrencyValidator()
+      const CurrencyValidator()
           .validate(
             label: 'test',
             value: 'foo',
