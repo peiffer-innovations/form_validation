@@ -37,7 +37,7 @@ class MinLengthValidator extends JsonClass implements ValueValidator {
       assert(map['type'] == kType);
 
       result = MinLengthValidator(
-        length: JsonClass.parseInt(
+        length: JsonClass.maybeParseInt(
               map['length'],
             ) ??
             0,

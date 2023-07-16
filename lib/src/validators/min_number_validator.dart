@@ -37,7 +37,7 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
       assert(map['type'] == kType);
 
       result = MinNumberValidator(
-        number: JsonClass.parseDouble(
+        number: JsonClass.maybeParseDouble(
               map['number'],
             ) ??
             0,
@@ -70,7 +70,7 @@ class MinNumberValidator extends JsonClass implements ValueValidator {
     String? error;
 
     if (value?.isNotEmpty == true) {
-      final numValue = JsonClass.parseDouble(value);
+      final numValue = JsonClass.maybeParseDouble(value);
 
       if (numValue == null) {
         error = translate(

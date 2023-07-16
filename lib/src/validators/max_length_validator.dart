@@ -37,7 +37,7 @@ class MaxLengthValidator extends JsonClass implements ValueValidator {
       assert(map['type'] == kType);
 
       result = MaxLengthValidator(
-        length: JsonClass.parseInt(
+        length: JsonClass.maybeParseInt(
               map['length'],
             ) ??
             0,

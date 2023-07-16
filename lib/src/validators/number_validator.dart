@@ -38,9 +38,10 @@ class NumberValidator extends JsonClass implements ValueValidator {
       assert(map['type'] == kType);
 
       result = NumberValidator(
-        allowDecimal: map['allowDecimal'] == null
-            ? true
-            : JsonClass.parseBool(map['allowDecimal']),
+        allowDecimal: JsonClass.parseBool(
+          map['allowDecimal'],
+          whenNull: true,
+        ),
       );
     }
 
@@ -71,7 +72,7 @@ class NumberValidator extends JsonClass implements ValueValidator {
     String? error;
 
     if (value?.isNotEmpty == true) {
-      final numValue = JsonClass.parseDouble(value);
+      final numValue = JsonClass.maybeParseDouble(value);
 
       if (numValue == null) {
         error = translate(
