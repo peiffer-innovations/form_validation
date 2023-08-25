@@ -34,6 +34,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _loading = false;
 
+  final TextEditingController requiredTextController = TextEditingController();
+  final TextEditingController equalTextController = TextEditingController();
+
   void _onSubmit() async {
     setState(() => _loading = true);
     await Future.delayed(const Duration(seconds: 3));
@@ -59,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextFormField(
+                  controller: requiredTextController,
                   decoration: const InputDecoration(
                     labelText: 'Required',
                   ),
@@ -111,6 +115,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     return validator.validate(
                       label: 'Min 3 / Max 5 Length',
+                      value: value,
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                TextFormField(
+                  controller: equalTextController,
+                  decoration: const InputDecoration(
+                    labelText: 'Equal',
+                  ),
+                  validator: (value) {
+                    final validator = Validator(
+                      validators: [EqualValidator(target: requiredTextController.text)],
+                    );
+
+                    return validator.validate(
+                      label: 'Equal',
                       value: value,
                     );
                   },

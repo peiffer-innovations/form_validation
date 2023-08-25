@@ -27,6 +27,7 @@ class Validator extends JsonClass {
     NumberValidator.kType: NumberValidator.fromDynamic,
     PhoneNumberValidator.kType: PhoneNumberValidator.fromDynamic,
     RequiredValidator.kType: RequiredValidator.fromDynamic,
+    EqualValidator.kType : EqualValidator.fromDynamic,
   };
 
   static final _customValidatorBuilders =
@@ -66,6 +67,7 @@ class Validator extends JsonClass {
   ///  * [NumberValidator], ensures the value is a valid number.
   ///  * [PhoneNumberValidator], ensures the value is formatted as a phone number.
   ///  * [RequiredValidator], ensures the value is not empty.
+  ///  * [EqualValidator], ensures the value is same as N characters.
   ///
   /// Note: All validators except for [RequiredValidator] will pass on an empty
   /// value.

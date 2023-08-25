@@ -34,6 +34,7 @@ class FormValidationTranslations {
     'form_validation_number_decimal': _kDefaultInvalidError,
     'form_validation_phone_number': _kDefaultInvalidError,
     'form_validation_required': '{label} is required',
+    'form_validation_equal': '{label} is not equal to {target}',
   };
 
   static String get form_validation_currency =>
@@ -58,4 +59,6 @@ class FormValidationTranslations {
       values['form_validation_phone_number'] ?? _kDefaultInvalidError;
   static String get form_validation_required =>
       values['form_validation_required'] ?? _kDefaultInvalidError;
+  static String get form_validation_equal =>
+      values['form_validation_equal'] ?? _kDefaultInvalidError;
 }

@@ -16,6 +16,7 @@
     - [NumberValidator](#numbervalidator)
     - [PhoneNumberValidator](#phonenumbervalidator)
     - [RequiredValidator](#requiredvalidator)
+    - [EqualValidator](#equalvalidator)
   - [Custom Validators](#custom-validators)
     - [Example](#example)
 
@@ -33,7 +34,7 @@ Add the repo to your Flutter `pubspec.yaml` file.
 
 ```
 dependencies:
-  form_validation: <<version>> 
+  form_validation: <<version>>
 ```
 
 Then run...
@@ -59,6 +60,7 @@ Class                  | Type           | Description
 `NumberValidator`      | `number`       | Ensures the value is a valid number
 `PhoneNumberValidator` | `phone_number` | Ensures the value is a validly formatted phone number
 `RequiredValidator`    | `required`     | Ensures the value is not `null`, empty, nor white space only
+`EqualValidator`       | `equal`        | Ensures the value is same with a set target of characters
 
 
 ## Validation Messages / Translations
@@ -78,6 +80,7 @@ Key                                 | Parameters        | Description
 `form_validation_number_decimal`    | `label`           | Used when a number is detected, but not allowed to be a decimal
 `form_validation_phone_number`      | `label`           | Used when an invalid phone number is detected
 `form_validation_required`          | `label`           | Used when a value is required, but detected as `null`, empty, or all white space
+`form_validation_equal`             | `label`, `target` | Used when a value is expected same with `target`
 
 
 ## JSON Support
@@ -179,6 +182,15 @@ The overall struction needs to be:
 }
 ```
 
+### EqualValidator
+
+```json
+{
+  "target": <String>,
+  "type": "required"
+}
+```
+
 
 ## Custom Validators
 
@@ -220,7 +232,7 @@ class MyCustomValidator extends ValueValidator {
   }) {
     String error;
 
-    // In general, validators should pass if the value is empty.  Combine 
+    // In general, validators should pass if the value is empty.  Combine
     // validators with the RequiredValidator to ensure a value is non-empty.
     if (value?.isNotEmpty == true) {
       // Do processing to determine if the value is valid or not
@@ -239,7 +251,7 @@ void main() {
   );
 
   // start app
-} 
+}
 
 ...
 
