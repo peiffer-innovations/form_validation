@@ -59,7 +59,7 @@ class PhoneNumberValidator extends JsonClass implements ValueValidator {
 
     if (value?.isNotEmpty == true) {
       // Credit to this SO answer: https://stackoverflow.com/a/16702965
-      final pattern =
+      const pattern =
           r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$';
 
       final regExp = RegExp(pattern);

@@ -32,7 +32,7 @@ void main() {
       // pass
     }
 
-    final jsonStr = '''
+    const jsonStr = '''
 {
   "validators": [{
     "allowNegative": true,
@@ -100,7 +100,7 @@ void main() {
       Validator.unregisterCustomValidatorBuilder(_MyMockValidator.kType);
     });
     test('custom', () {
-      final jsonStr = '''
+      const jsonStr = '''
 {
   "validators": [{
     "type": "required"
@@ -127,11 +127,11 @@ void main() {
   });
 
   test('validate', () {
-    final label = 'test';
-    final length = 8;
+    const label = 'test';
+    const length = 8;
     final validator = Validator(validators: [
       const RequiredValidator(),
-      MinLengthValidator(length: length),
+      const MinLengthValidator(length: length),
       const EmailValidator(),
     ]);
 

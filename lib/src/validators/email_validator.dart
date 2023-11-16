@@ -59,7 +59,7 @@ class EmailValidator extends JsonClass implements ValueValidator {
 
     if (value?.isNotEmpty == true) {
       // Credit to this SO answer: https://stackoverflow.com/a/16888554
-      final pattern =
+      const pattern =
           r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
       final regExp = RegExp(pattern);

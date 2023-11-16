@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:meta/meta.dart';
 
 /// Translates the given entry.  Dynamic args must be surrounded in curley
@@ -16,7 +18,7 @@ String translate(
 /// Provides the default (English) translations used by the library.
 @immutable
 class FormValidationTranslations {
-  FormValidationTranslations._();
+  const FormValidationTranslations._();
 
   static const _kDefaultInvalidError = '{label} is invalid';
 
