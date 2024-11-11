@@ -3,22 +3,22 @@ description: 'Validators that can be used directly via code or constructed from 
 version: '3.1.1+8'
 homepage: 'https://github.com/peiffer-innovations/form_validation'
 
-environment: 
+environment:
   sdk: '>=3.0.0 <4.0.0'
 
-dependencies: 
-  flutter: 
+dependencies:
+  flutter:
     sdk: 'flutter'
   intl: '^0.19.0'
   json_class: '^3.0.0+16'
   meta: '^1.12.0'
 
-dev_dependencies: 
-  flutter_lints: '^4.0.0'
-  flutter_test: 
+dev_dependencies:
+  flutter_lints: '^5.0.0'
+  flutter_test:
     sdk: 'flutter'
 
-permittedLicenses: 
+permittedLicenses:
   - 'Apache-2.0'
   - 'BSD-2-Clause'
   - 'BSD-3-Clause'
@@ -27,7 +27,7 @@ permittedLicenses:
   - 'MPL-2.0'
   - 'Zlib'
 
-packageLicenseOverride: 
+packageLicenseOverride:
   flutter: 'BSD-3-Clause'
   flutter_driver: 'BSD-3-Clause'
   flutter_goldens: 'BSD-3-Clause'
@@ -38,7 +38,7 @@ packageLicenseOverride:
   integration_test: 'BSD-3-Clause'
   rxdart: 'Apache-2.0'
 
-ignore_updates: 
+ignore_updates:
   - 'archive'
   - 'async'
   - 'boolean_selector'
