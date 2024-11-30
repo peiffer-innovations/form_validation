@@ -1,3 +1,8 @@
+## [3.2.0] - November 30th, 2024
+
+* Widened intl dependencies
+
+
 ## [3.1.1+8] - July 16, 2024
 
 * Automated dependency updates
